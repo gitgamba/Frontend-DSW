@@ -20,37 +20,32 @@ Las funcionalidades que van a tener fijas son las opciones de listar productos, 
 
 ### Modelo
 ![imagen del modelo](https://app.diagrams.net/#G1RWyt4OKcoN8GTd4KQJgqbkUnY_ikWzhe)
-
-*Nota*: incluir un link con la imagen de un modelo, puede ser modelo de dominio, diagrama de clases, DER. Si lo prefieren pueden utilizar diagramas con [Mermaid](https://mermaid.js.org) en lugar de imágenes.
+* https://app.diagrams.net/#G1RWyt4OKcoN8GTd4KQJgqbkUnY_ikWzhe
 
 ## Alcance Funcional 
 
 ### Alcance Mínimo
 
-*Nota*: el siguiente es un ejemplo para un grupo de 3 integrantes para un sistema de hotel. El 
-
 Regularidad:
 |Req|Detalle|
 |:-|:-|
-|CRUD simple|1. CRUD Tipo Habitacion<br>2. CRUD Servicio<br>3. CRUD Localidad|
-|CRUD dependiente|1. CRUD Habitación {depende de} CRUD Tipo Habitacion<br>2. CRUD Cliente {depende de} CRUD Localidad|
-|Listado<br>+<br>detalle| 1. Listado de habitaciones filtrado por tipo de habitación, muestra nro y tipo de habitación => detalle CRUD Habitacion<br> 2. Listado de reservas filtrado por rango de fecha, muestra nro de habitación, fecha inicio y fin estadía, estado y nombre del cliente => detalle muestra datos completos de la reserva y del cliente|
-|CUU/Epic|1. Reservar una habitación para la estadía<br>2. Realizar el check-in de una reserva|
+|CRUD simple|1. CRUD categoría<br>2. CRUD modo de envío<br>3. CRUD Localidad<br>4. CRUD provincia|
+|CRUD dependiente|1-CRUD usuario que depende de CRUD localidad<br>2-CRUD producto depende de CRUD categoría|
+|Listado<br>+<br>detalle| 1-Listado de productos en carrito, filtrado por tipo de productos, muestra código de producto y tipo => detalle CRUD<br>2-Listado Historial de usuario|
+|CUU/Epic|1-Realizar un pedido de compra<br>2-Envío|
 
 
 Adicionales para Aprobación
 |Req|Detalle|
 |:-|:-|
-|CRUD |1. CRUD Tipo Habitacion<br>2. CRUD Servicio<br>3. CRUD Localidad<br>4. CRUD Provincia<br>5. CRUD Habitación<br>6. CRUD Empleado<br>7. CRUD Cliente|
-|CUU/Epic|1. Reservar una habitación para la estadía<br>2. Realizar el check-in de una reserva<br>3. Realizar el check-out y facturación de estadía y servicios|
+|CRUD |1-CRUD producto<br>2-CRUD provincia<br>3-CRUD usuario<br>4-CRUD localidad<br>5-CRUD modo de envío<br>6-CRUD categoría<br>7-CRUD ESTADO COMPRA/ENVIO depende de modo de envió<br>8-CRUD Compra depende de usuario y producto<br>9-CRUD Compra detalle depende de compra<br>|
+|CUU/Epic|1-Realizar compra<br>2-Cancelar envió/compra (mientras se envía el producto)<br>3-Crear ofertas (por el administrador, en un rango de fecha)<br>4-Envío (epic)<br>|
 
 
 ### Alcance Adicional Voluntario
 
-*Nota*: El Alcance Adicional Voluntario es opcional, pero ayuda a que la funcionalidad del sistema esté completa y será considerado en la nota en función de su complejidad y esfuerzo.
-
 |Req|Detalle|
 |:-|:-|
-|Listados |1. Estadía del día filtrado por fecha muestra, cliente, habitaciones y estado <br>2. Reservas filtradas por cliente muestra datos del cliente y de cada reserve fechas, estado cantidad de habitaciones y huespedes|
-|CUU/Epic|1. Consumir servicios<br>2. Cancelación de reserva|
-|Otros|1. Envío de recordatorio de reserva por email|
+|Listados |1-Listado de productos con stock<br>2-Listado de productos en oferta|
+|CUU/Epic||
+|Otros|1-Envío de comprobante de compra y llegada por mail|
